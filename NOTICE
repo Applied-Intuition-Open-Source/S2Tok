@@ -1,0 +1,43 @@
+S2Tok
+Copyright 2026 The S2Tok Authors
+
+Licensed under the Creative Commons Attribution-NonCommercial 4.0 International
+License (CC BY-NC 4.0), non-commercial use only; see LICENSE.
+
+This product is derived from ZipSplat (https://github.com/cvg/ZipSplat),
+Copyright 2026 ETH Zurich, licensed under the Apache License, Version 2.0.
+The model definition was reorganized and extended with a streaming scene memory,
+scene-local attention with a 3D rotary position embedding, an admission head and a
+scale readout; training-only code was removed.
+
+It includes code adapted from the following projects, also licensed under the
+Apache License, Version 2.0:
+
+- DINOv2 (https://github.com/facebookresearch/dinov2), Copyright (c) Meta Platforms,
+  Inc. and affiliates, Apache License 2.0: s2tok/backbone.py and s2tok/modules/
+  attention.py, blocks.py, patch_embed.py, rope.py.
+- Depth Anything 3 (https://github.com/ByteDance-Seed/Depth-Anything-3), Copyright (c)
+  2025 ByteDance, Apache License 2.0: backbone architecture in s2tok/backbone.py.
+- timm (https://github.com/huggingface/pytorch-image-models), Copyright 2020 Ross
+  Wightman, Apache License 2.0: vision transformer building blocks.
+
+The Apache License 2.0 text is in THIRD_PARTY_LICENSES. The portions of this
+product derived from these projects remain available under the Apache License 2.0
+from the original projects.
+
+Model weights
+-------------
+The pretrained weights (s2tok_252.pt) are distributed separately at
+https://huggingface.co/AppliedIntuitionResearch/S2Tok under CC BY-NC 4.0, non-commercial use
+only; see WEIGHTS_LICENSE.md. They are fine-tuned from the released ZipSplat checkpoint
+(https://huggingface.co/veichta/zipsplat, CC BY-NC 4.0), which is initialized from DA3-Giant
+(https://huggingface.co/depth-anything/DA3-GIANT, ByteDance, CC BY-NC 4.0). Depth labels used in
+training were produced with DA3-Nested-Giant-Large
+(https://huggingface.co/depth-anything/DA3NESTED-GIANT-LARGE, CC BY-NC 4.0). The weights were
+trained on DL3DV-10K (https://github.com/DL3DV-10K/Dataset, DL3DV-10K Terms of Use and
+CC BY-NC 4.0, non-commercial research and education only) and RealEstate10K
+(https://google.github.io/realestate10k/). No training data is distributed with the code or
+the weights.
+
+The teaser animations in assets/teaser/ show scenes from Mip-NeRF 360
+(https://jonbarron.info/mipnerf360/) and are not covered by the licenses above.
